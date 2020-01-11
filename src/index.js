@@ -1,12 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import faker from 'faker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import AprovalCard from './AprovalCard';
+import Comment from './comments'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// import { Container } from './styles';
+
+const App = () => {
+  return (
+    <div className="ui container comments" style={{ margin: 0, padding: 15 }}>
+      <AprovalCard>
+        <Comment
+          author={faker.name.findName()}
+          text={faker.lorem.sentence(8)}
+          avatar={faker.image.avatar()}
+        />
+      </AprovalCard>
+      <AprovalCard>
+        <Comment
+          author={faker.name.findName()}
+          text={faker.lorem.sentence(8)}
+          avatar={faker.image.avatar()}
+        />
+      </AprovalCard>
+      <AprovalCard>
+        <Comment
+          author={faker.name.findName()}
+          text={faker.lorem.sentence(8)}
+          avatar={faker.image.avatar()}
+        />
+      </AprovalCard>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.querySelector('#root'));
